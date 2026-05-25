@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.datallmhub.cookbook</groupId>
+    <artifactId>agentflow4j-cookbook-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>AgentFlow4J Cookbook</name>
+    <description>Production-ready recipes for building multi-agent LLM workflows in Java with AgentFlow4J and Spring AI.</description>
+    <url>https://github.com/datallmhub/agentflow4j-cookbook</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>01-rag-agent</module>
+        <module>02-support-ticket-triage</module>
+        <module>03-web-research-agent</module>
+        <module>04-slack-bot</module>
+        <module>05-batch-document-processor</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <agentflow4j.version>0.6.0</agentflow4j.version>
+        <spring-boot.version>3.3.0</spring-boot.version>
+        <spring-ai.version>1.0.0</spring-ai.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <artifactId>agentflow4j-core</artifactId>
+                <version>v${agentflow4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <artifactId>agentflow4j-graph</artifactId>
+                <version>v${agentflow4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <artifactId>agentflow4j-squad</artifactId>
+                <version>v${agentflow4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <artifactId>agentflow4j-starter</artifactId>
+                <version>v${agentflow4j.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

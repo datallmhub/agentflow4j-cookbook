@@ -1,0 +1,38 @@
+# AgentFlow4J Cookbook
+
+> Runnable, production-oriented examples for building multi-agent LLM workflows in Java with AgentFlow4J and Spring AI. Each recipe is a self-contained Maven module that runs locally against Ollama with no API key. This is the practical companion to the AgentFlow4J framework — the fastest way for a Java/Spring developer to see multi-agent orchestration, governance, and durable execution in working code.
+
+AgentFlow4J is a JVM-native multi-agent orchestration runtime built on top of Spring AI. It is often described as a Java alternative to LangGraph: it provides graph-based agent execution, typed shared state, governance gates (budget, tool, state, approval), checkpoint-based resume, and structured run logs — all in idiomatic Java, with no Python and no sidecar service.
+
+Key facts:
+- Language: Java 17+
+- Build: Maven (multi-module), dependencies fetched via JitPack
+- LLM access: Spring AI ChatClient; local-first via Ollama, swappable to OpenAI / Mistral / Anthropic
+- License: Apache 2.0
+- Framework repo: https://github.com/datallmhub/agentflow4j
+- Framework docs: https://datallmhub.github.io/agentflow4j/
+
+## Recipes
+
+- [01 — RAG agent](01-rag-agent/README.md): Retrieval-augmented generation as a two-agent graph (retriever + answerer) with source citations and a budget cap. Shows typed state propagation and graph composition.
+- [02 — Support ticket triage](02-support-ticket-triage/README.md): Classify customer tickets and route to specialist agents via conditional edges, with a content-policy gate before reply. Shows conditional routing and fan-in.
+- [03 — Web research agent](03-web-research-agent/README.md): Search Hacker News over real HTTP, rank results, and synthesize a digest. Shows agents performing real-world I/O and a search → rank → synthesize pipeline.
+- [04 — Slack bot](04-slack-bot/README.md): Plan-then-execute multi-agent assistant against a simulated Slack workspace. Shows constrained LLM output and the plan/execute separation that keeps side-effects out of the model.
+- [05 — Batch document processor](05-batch-document-processor/README.md): Process N documents through one agent graph with resume-after-crash semantics. Shows stable run ids, idempotent re-runs, and checkpoint-based recovery.
+
+## Core concepts demonstrated
+
+- Graph composition: `AgentGraph.builder().addNode(...).addEdge(...).build()`
+- Conditional routing: `Edge.conditional(from, predicate, to)`
+- Typed shared state: `StateKey<T>` read/written across nodes
+- Hybrid LLM/stub agents: every recipe runs without an LLM for fast wiring verification
+- Provider-agnostic chat: Spring AI `ChatClient`
+- Governance: BudgetPolicy, ToolPolicy, StatePolicy, ApprovalGate (referenced; see framework docs)
+- Durable execution: CheckpointStore + run ids for resume
+
+## Related
+
+- AgentFlow4J framework: https://github.com/datallmhub/agentflow4j
+- Documentation site: https://datallmhub.github.io/agentflow4j/
+- Tutorial — governance gates: https://datallmhub.github.io/agentflow4j/tutorials/stop-your-agent-burning-money/
+- Spring AI: https://docs.spring.io/spring-ai/reference/

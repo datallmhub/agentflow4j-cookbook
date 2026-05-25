@@ -1,0 +1,16 @@
+target/
+*.class
+*.jar
+*.war
+*.iml
+.idea/
+.vscode/
+.DS_Store
+.mvn/
+mvnw
+mvnw.cmd
+dependency-reduced-pom.xml
+*.log
+.env
+.env.local
+hs_err_pid*.log

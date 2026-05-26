@@ -19,6 +19,7 @@ Key facts:
 - [03 — Web research agent](03-web-research-agent/README.md): Search Hacker News over real HTTP, rank results, and synthesize a digest. Shows agents performing real-world I/O and a search → rank → synthesize pipeline.
 - [04 — Slack bot](04-slack-bot/README.md): Plan-then-execute multi-agent assistant against a simulated Slack workspace. Shows constrained LLM output and the plan/execute separation that keeps side-effects out of the model.
 - [05 — Batch document processor](05-batch-document-processor/README.md): Process N documents through one agent graph with resume-after-crash semantics. Shows stable run ids, idempotent re-runs, and checkpoint-based recovery.
+- [06 — Cost-aware routing](06-cost-aware-routing/README.md): Route a squad to a premium model while budget remains and degrade to a cheaper fallback once it runs low, using `RoutingStrategy.budgetAware` over a shared `BudgetPolicy`. Shows reason-aware retries — a `RetryPolicy` + `FailureClassifier` that retries transient failures (honouring `Retry-After`), gives up on permanent ones, and surfaces budget exhaustion as an interrupt.
 
 ## Core concepts demonstrated
 
@@ -28,6 +29,8 @@ Key facts:
 - Hybrid LLM/stub agents: every recipe runs without an LLM for fast wiring verification
 - Provider-agnostic chat: Spring AI `ChatClient`
 - Governance: BudgetPolicy, ToolPolicy, StatePolicy, ApprovalGate (referenced; see framework docs)
+- Cost-aware routing: `RoutingStrategy.budgetAware(budget, scope, threshold, premium, fallback)` reading live `BudgetPolicy` counters
+- Reason-aware retries: `RetryPolicy` + `FailureClassifier` classifying failures as TRANSIENT / PERMANENT / OVER_BUDGET
 - Durable execution: CheckpointStore + run ids for resume
 
 ## Related

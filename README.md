@@ -2,10 +2,10 @@
 
 [![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Java 17+](https://img.shields.io/badge/java-17%2B-orange.svg)](https://adoptium.net/)
-[![AgentFlow4J 0.6.0](https://img.shields.io/badge/agentflow4j-0.6.0-green.svg)](https://github.com/datallmhub/agentflow4j)
+[![AgentFlow4J 0.7.0](https://img.shields.io/badge/agentflow4j-0.7.0-green.svg)](https://github.com/datallmhub/agentflow4j)
 [![Spring AI 1.0](https://img.shields.io/badge/spring--ai-1.0-brightgreen.svg)](https://docs.spring.io/spring-ai/reference/)
 
-**Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, and batch document processing — with [AgentFlow4J](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).
+**Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, batch document processing, and cost-aware routing — with [AgentFlow4J](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).
 
 If you've been looking for a **Java alternative to LangGraph** or a way to orchestrate **multiple LLM agents on the JVM** beyond single-prompt chatbots, this is a copy-paste starting point. Every recipe is a self-contained Maven module: clone, pick a recipe, run it. Local-first — each one runs against [Ollama](https://ollama.com/) with **zero API keys and zero cost**, and swaps to OpenAI, Mistral, or Anthropic by changing one Spring AI starter dependency.
 
@@ -33,6 +33,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 | 3 | [**Web research agent**](03-web-research-agent/) | Real-time research over Hacker News with a parse → search → classify → synthesize graph, streaming tokens via `Flux<AgentEvent>` |
 | 4 | [**Slack bot**](04-slack-bot/) | Multi-agent Slack assistant — listens to mentions, runs a planning + executor graph, posts a threaded reply |
 | 5 | [**Batch document processor**](05-batch-document-processor/) | Process N documents through the same agent graph with checkpointing — resume from the last successful doc after a crash |
+| 6 | [**Cost-aware routing**](06-cost-aware-routing/) | Degrade a squad from a premium model to a cheaper fallback as the budget depletes with `RoutingStrategy.budgetAware`, and retry only what's worth retrying via a reason-aware `RetryPolicy` (transient vs permanent vs over-budget) |
 
 ---
 
@@ -116,7 +117,8 @@ agentflow4j-cookbook/
 ├── 02-support-ticket-triage/
 ├── 03-web-research-agent/
 ├── 04-slack-bot/
-└── 05-batch-document-processor/
+├── 05-batch-document-processor/
+└── 06-cost-aware-routing/
 ```
 
 ---

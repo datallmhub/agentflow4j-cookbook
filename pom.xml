@@ -27,6 +27,7 @@
         <module>03-web-research-agent</module>
         <module>04-slack-bot</module>
         <module>05-batch-document-processor</module>
+        <module>06-cost-aware-routing</module>
     </modules>
 
     <properties>
@@ -34,7 +35,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <agentflow4j.version>0.6.0</agentflow4j.version>
+        <agentflow4j.version>0.7.0</agentflow4j.version>
         <spring-boot.version>3.3.0</spring-boot.version>
         <spring-ai.version>1.0.0</spring-ai.version>
     </properties>

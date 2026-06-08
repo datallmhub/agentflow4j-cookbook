@@ -7,7 +7,7 @@
 
 **Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, batch document processing, and cost-aware routing — with [AgentFlow4J](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).
 
-If you've been looking for a **Java alternative to LangGraph** or a way to orchestrate **multiple LLM agents on the JVM** beyond single-prompt chatbots, this is a copy-paste starting point. Every recipe is a self-contained Maven module: clone, pick a recipe, run it. Local-first — each one runs against [Ollama](https://ollama.com/) with **zero API keys and zero cost**, and swaps to OpenAI, Mistral, or Anthropic by changing one Spring AI starter dependency.
+If you want to orchestrate **governed, production-ready multi-agent workflows on the JVM** — with budget caps, tool policies, human approval gates, and checkpoint-based recovery — this is a copy-paste starting point. Every recipe is a self-contained Maven module: clone, pick a recipe, run it. Local-first — each one runs against [Ollama](https://ollama.com/) with **zero API keys and zero cost**, and swaps to OpenAI, Mistral, or Anthropic by changing one Spring AI starter dependency.
 
 ---
 
@@ -135,8 +135,8 @@ agentflow4j-cookbook/
 
 ## Frequently asked
 
-**Is this a Java alternative to LangGraph / LangChain?**
-AgentFlow4J is a JVM-native multi-agent orchestration runtime. If you build on Spring and want LangGraph-style graph execution without leaving Java, yes — these recipes are the fastest way to see it in action.
+**How does this compare to LangGraph or LangChain?**
+AgentFlow4J is not a port of LangGraph. It's a governed orchestration runtime — the difference is `BudgetPolicy`, `ToolPolicy`, `ApprovalGate`, and `FailureClassifier` built into the execution model, not bolted on top. If you're on Spring and need production governance over your agent workflows, these recipes show what that looks like end to end.
 
 **Do I need an OpenAI API key?**
 No. Every recipe runs against a local [Ollama](https://ollama.com/) model out of the box. Cloud providers (OpenAI, Mistral, Anthropic) are a one-dependency swap.
@@ -148,7 +148,7 @@ The patterns (graph composition, typed state, governance gates, checkpoint-based
 
 ## Topics
 
-`java` · `llm` · `ai-agents` · `multi-agent` · `agent-orchestration` · `spring-ai` · `spring-boot` · `rag` · `langgraph-alternative` · `langchain4j` · `ollama` · `generative-ai` · `agentflow4j`
+`java` · `llm` · `ai-agents` · `multi-agent` · `agent-orchestration` · `spring-ai` · `spring-boot` · `rag` · `llm-governance` · `langchain4j` · `ollama` · `generative-ai` · `agentflow4j`
 
 ---
 

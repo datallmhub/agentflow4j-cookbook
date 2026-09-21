@@ -49,7 +49,7 @@ public class RagAgentDemo {
                   + "the run for human approval."),
             new Doc("af4j-003", "Checkpointing",
                     "Every run can be persisted by attaching a CheckpointStore. After a crash "
-                  + "or a human pause, graph.resumeWithApproval(runId) replays from the last "
+                  + "or a human pause, graph.resume(runId, ResumeOptions.ofApproval(node)) continues from the last "
                   + "successful node — no work is lost."),
             new Doc("af4j-004", "Run log",
                     "Attach a RunLogStore to record every node enter/exit, transition, and "

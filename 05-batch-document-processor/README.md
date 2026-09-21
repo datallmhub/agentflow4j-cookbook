@@ -63,7 +63,7 @@ That's it. No queue, no orchestrator, no Airflow.
 | **Batch loop** (this recipe) | Documents already fully processed are not re-processed after a crash |
 | **Intra-graph** (`CheckpointStore`) | Pauses inside one document's graph survive crashes — e.g. an `ApprovalGate` waiting for a human |
 
-For the intra-graph layer, attach a `CheckpointStore` to the `AgentGraph` and pass the same `runId` to `invoke(ctx, runId)`:
+For the intra-graph layer, attach a `CheckpointStore` to the `AgentGraph` and pass the same `runId` through `RunOptions`:
 
 ```java
 AgentGraph graph = AgentGraph.builder()
@@ -71,7 +71,7 @@ AgentGraph graph = AgentGraph.builder()
         .checkpointStore(new InMemoryCheckpointStore())  // or JDBC / Redis
         .build();
 
-graph.invoke(AgentContext.of(doc), "doc-" + i);
+graph.invoke(AgentContext.of(doc), RunOptions.ofRunId("doc-" + i));
 ```
 
 See the [Checkpointing docs](https://datallmhub.github.io/agentflow4j/) for `JdbcCheckpointStore` and human-approval flows.
@@ -82,7 +82,7 @@ See the [Checkpointing docs](https://datallmhub.github.io/agentflow4j/) for `Jdb
 
 | Concept | Where in the code |
 |---|---|
-| **Stable run ids** | `graph.invoke(ctx, "doc-" + i)` — same id ⇒ same checkpoint key, idempotent re-runs |
+| **Stable run ids** | `graph.invoke(ctx, RunOptions.ofRunId("doc-" + i))` — same id ⇒ same checkpoint key, idempotent re-runs |
 | **Atomic progress marker** | `writeResumeIndex()` writes after every success; on restart `readResumeIndex()` reads it |
 | **Per-doc state isolation** | Each `AgentContext` is fresh — no leakage between documents |
 | **Resume semantics from a flat file** | No external state store needed; suitable for dev, testing, simple cron jobs |
@@ -95,7 +95,7 @@ See the [Checkpointing docs](https://datallmhub.github.io/agentflow4j/) for `Jdb
 |---|---|
 | **Concurrent workers** | Replace the flat file with a row in `processed_docs (doc_id, processed_at)` and use `SELECT … FOR UPDATE SKIP LOCKED` |
 | **Partial-failure visibility** | Attach a `RunLogStore` — query failed `runId`s for triage |
-| **Retry strategy** | Add `RetryPolicy.exponentialBackoff(3)` at the agent level — transient failures self-heal |
+| **Retry strategy** | Add `.retryPolicy(RetryPolicy.exponential(3, Duration.ofMillis(200)))` to the graph — transient failures self-heal |
 | **Cost cap** | Add a per-run `BudgetPolicy` — a single rogue document can't burn the whole batch's budget |
 
 ---

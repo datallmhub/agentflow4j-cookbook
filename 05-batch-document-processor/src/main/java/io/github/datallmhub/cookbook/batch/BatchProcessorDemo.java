@@ -11,6 +11,7 @@ import io.github.datallmhub.agentflow4j.core.AgentContext;
 import io.github.datallmhub.agentflow4j.core.AgentResult;
 import io.github.datallmhub.agentflow4j.core.StateKey;
 import io.github.datallmhub.agentflow4j.graph.AgentGraph;
+import io.github.datallmhub.agentflow4j.graph.RunOptions;
 import org.jspecify.annotations.Nullable;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.ollama.OllamaChatModel;
@@ -60,7 +61,7 @@ public class BatchProcessorDemo {
             System.out.println("─ Document #" + i + " (runId=" + runId + ")");
             System.out.println("  body: " + doc);
 
-            AgentResult result = graph.invoke(AgentContext.of(doc), runId);
+            AgentResult result = graph.invoke(AgentContext.of(doc), RunOptions.ofRunId(runId));
 
             System.out.println(result.text());
             writeResumeIndex(i + 1);

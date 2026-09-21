@@ -20,6 +20,7 @@ Key facts:
 - [04 — Slack bot](04-slack-bot/README.md): Plan-then-execute multi-agent assistant against a simulated Slack workspace. Shows constrained LLM output and the plan/execute separation that keeps side-effects out of the model.
 - [05 — Batch document processor](05-batch-document-processor/README.md): Process N documents through one agent graph with resume-after-crash semantics. Shows stable run ids, idempotent re-runs, and checkpoint-based recovery.
 - [06 — Cost-aware routing](06-cost-aware-routing/README.md): Route a squad to a premium model while budget remains and degrade to a cheaper fallback once it runs low, using `RoutingStrategy.budgetAware` over a shared `BudgetPolicy`. Shows reason-aware retries — a `RetryPolicy` + `FailureClassifier` that retries transient failures (honouring `Retry-After`), gives up on permanent ones, and surfaces budget exhaustion as an interrupt.
+- [07 - Governed MCP agent](07-mcp-governed-agent/README.md): A support agent using the tools of an MCP server (started as a child process over stdio) through Spring AI's `SyncMcpToolCallbackProvider` and `ExecutorAgent.toolProviders`. Shows a `ToolPolicy` refusing calls before they reach the server, the tool-call audit, and `AgentListener.onToolCall`.
 
 ## Core concepts demonstrated
 

@@ -35,6 +35,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 | 5 | [**Batch document processor**](05-batch-document-processor/) | Process N documents through the same agent graph with checkpointing — resume from the last successful doc after a crash |
 | 6 | [**Cost-aware routing**](06-cost-aware-routing/) | Degrade a squad from a premium model to a cheaper fallback as the budget depletes with `RoutingStrategy.budgetAware`, and retry only what's worth retrying via a reason-aware `RetryPolicy` (transient vs permanent vs over-budget) |
 | 7 | [**Governed MCP agent**](07-mcp-governed-agent/) | Use the tools of an MCP server from an `AgentGraph`: a `ToolPolicy` refuses risky calls before they reach the server, every call is audited, and the model is told when it was refused |
+| 8 | [**Self-correcting writer**](08-self-correcting-writer/) | A bounded revise-until-valid loop: a writer revises its draft until a deterministic reviewer accepts it, and escalates to a human after three attempts |
 
 ---
 

@@ -21,6 +21,7 @@ Key facts:
 - [05 — Batch document processor](05-batch-document-processor/README.md): Process N documents through one agent graph with resume-after-crash semantics. Shows stable run ids, idempotent re-runs, and checkpoint-based recovery.
 - [06 — Cost-aware routing](06-cost-aware-routing/README.md): Route a squad to a premium model while budget remains and degrade to a cheaper fallback once it runs low, using `RoutingStrategy.budgetAware` over a shared `BudgetPolicy`. Shows reason-aware retries — a `RetryPolicy` + `FailureClassifier` that retries transient failures (honouring `Retry-After`), gives up on permanent ones, and surfaces budget exhaustion as an interrupt.
 - [07 - Governed MCP agent](07-mcp-governed-agent/README.md): A support agent using the tools of an MCP server (started as a child process over stdio) through Spring AI's `SyncMcpToolCallbackProvider` and `ExecutorAgent.toolProviders`. Shows a `ToolPolicy` refusing calls before they reach the server, the tool-call audit, and `AgentListener.onToolCall`.
+- [08 - Self-correcting writer](08-self-correcting-writer/README.md): A writer agent and a deterministic reviewer in a graph loop (`Edge.conditional` + fallback edge), bounded by an attempt limit that escalates to a human and by `maxIterations`. Shows feedback through typed state and per-attempt audit in the run log.
 
 ## Core concepts demonstrated
 

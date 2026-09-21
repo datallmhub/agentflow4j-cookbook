@@ -29,6 +29,7 @@
         <module>05-batch-document-processor</module>
         <module>06-cost-aware-routing</module>
         <module>07-mcp-governed-agent</module>
+        <module>08-self-correcting-writer</module>
     </modules>
 
     <properties>

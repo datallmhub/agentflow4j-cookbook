@@ -47,6 +47,7 @@
         <jackson-bom.version>2.21.5</jackson-bom.version>
         <!-- Jackson 3 comes in with the MCP SDK; 3.1.6 is patched. -->
         <jackson3-bom.version>3.1.6</jackson3-bom.version>
+        <log4j2.version>2.25.5</log4j2.version>
     </properties>
 
     <repositories>
@@ -58,6 +59,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j2.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>tools.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>

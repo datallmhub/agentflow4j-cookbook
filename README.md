@@ -2,7 +2,7 @@
 
 [![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Java 17+](https://img.shields.io/badge/java-17%2B-orange.svg)](https://adoptium.net/)
-[![af4j 0.9.0](https://img.shields.io/badge/agentflow4j-0.9.0-green.svg)](https://github.com/datallmhub/agentflow4j)
+[![af4j 1.0.0](https://img.shields.io/badge/agentflow4j-1.0.0-green.svg)](https://github.com/datallmhub/agentflow4j)
 [![Spring AI 1.0](https://img.shields.io/badge/spring--ai-1.0-brightgreen.svg)](https://docs.spring.io/spring-ai/reference/)
 
 **Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, batch document processing, and cost-aware routing — with [af4j](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).

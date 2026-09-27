@@ -1,8 +1,8 @@
-# AgentFlow4J Cookbook
+# af4j Cookbook
 
-> Runnable, production-oriented examples for building multi-agent LLM workflows in Java with AgentFlow4J and Spring AI. Each recipe is a self-contained Maven module that runs locally against Ollama with no API key. This is the practical companion to the AgentFlow4J framework — the fastest way for a Java/Spring developer to see multi-agent orchestration, governance, and durable execution in working code.
+> Runnable, production-oriented examples for building multi-agent LLM workflows in Java with af4j and Spring AI. Each recipe is a self-contained Maven module that runs locally against Ollama with no API key. This is the practical companion to the af4j framework — the fastest way for a Java/Spring developer to see multi-agent orchestration, governance, and durable execution in working code.
 
-AgentFlow4J is a JVM-native multi-agent orchestration runtime built on top of Spring AI. It is often described as a Java alternative to LangGraph: it provides graph-based agent execution, typed shared state, governance gates (budget, tool, state, approval), checkpoint-based resume, and structured run logs — all in idiomatic Java, with no Python and no sidecar service.
+af4j is a JVM-native multi-agent orchestration runtime built on top of Spring AI. It is often described as a Java alternative to LangGraph: it provides graph-based agent execution, typed shared state, governance gates (budget, tool, state, approval), checkpoint-based resume, and structured run logs — all in idiomatic Java, with no Python and no sidecar service.
 
 Key facts:
 - Language: Java 17+
@@ -20,6 +20,9 @@ Key facts:
 - [04 — Slack bot](04-slack-bot/README.md): Plan-then-execute multi-agent assistant against a simulated Slack workspace. Shows constrained LLM output and the plan/execute separation that keeps side-effects out of the model.
 - [05 — Batch document processor](05-batch-document-processor/README.md): Process N documents through one agent graph with resume-after-crash semantics. Shows stable run ids, idempotent re-runs, and checkpoint-based recovery.
 - [06 — Cost-aware routing](06-cost-aware-routing/README.md): Route a squad to a premium model while budget remains and degrade to a cheaper fallback once it runs low, using `RoutingStrategy.budgetAware` over a shared `BudgetPolicy`. Shows reason-aware retries — a `RetryPolicy` + `FailureClassifier` that retries transient failures (honouring `Retry-After`), gives up on permanent ones, and surfaces budget exhaustion as an interrupt.
+- [07 - Governed MCP agent](07-mcp-governed-agent/README.md): A support agent using the tools of an MCP server (started as a child process over stdio) through Spring AI's `SyncMcpToolCallbackProvider` and `ExecutorAgent.toolProviders`. Shows a `ToolPolicy` refusing calls before they reach the server, the tool-call audit, and `AgentListener.onToolCall`.
+- [08 - Self-correcting writer](08-self-correcting-writer/README.md): A writer agent and a deterministic reviewer in a graph loop (`Edge.conditional` + fallback edge), bounded by an attempt limit that escalates to a human and by `maxIterations`. Shows feedback through typed state and per-attempt audit in the run log.
+- [10 - Parallel research squad](10-parallel-research-squad/README.md): Three researchers running concurrently from one fan-out and joining on a writer, with `maxConcurrency`, one shared `BudgetPolicy`, and an `ApprovalGate` that pauses a single branch while the others are checkpointed. Shows per-branch state keys and the join waiting for the gated branch.
 
 ## Core concepts demonstrated
 
@@ -35,7 +38,7 @@ Key facts:
 
 ## Related
 
-- AgentFlow4J framework: https://github.com/datallmhub/agentflow4j
+- af4j framework: https://github.com/datallmhub/agentflow4j
 - Documentation site: https://datallmhub.github.io/agentflow4j/
 - Tutorial — governance gates: https://datallmhub.github.io/agentflow4j/tutorials/stop-your-agent-burning-money/
 - Spring AI: https://docs.spring.io/spring-ai/reference/

@@ -11,6 +11,7 @@ import io.github.datallmhub.agentflow4j.core.AgentContext;
 import io.github.datallmhub.agentflow4j.core.AgentResult;
 import io.github.datallmhub.agentflow4j.core.StateKey;
 import io.github.datallmhub.agentflow4j.graph.AgentGraph;
+import io.github.datallmhub.agentflow4j.graph.RunOptions;
 import org.jspecify.annotations.Nullable;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.ollama.OllamaChatModel;
@@ -33,7 +34,7 @@ public class BatchProcessorDemo {
     static final StateKey<List<String>> TAGS    = StateKey.of("doc.tags",    (Class<List<String>>) (Class<?>) List.class);
 
     private static final List<String> DOCUMENTS = List.of(
-            "AgentFlow4J ships a BudgetPolicy SPI to cap multi-agent runs by cost.",
+            "af4j ships a BudgetPolicy SPI to cap multi-agent runs by cost.",
             "Spring AI 1.0 unifies chat models behind a single ChatClient interface.",
             "Resilience4j integrates seamlessly with Spring Boot for circuit breakers.",
             "LangChain4j gives Java developers an ergonomic LLM API similar to Python's LangChain.",
@@ -60,7 +61,7 @@ public class BatchProcessorDemo {
             System.out.println("─ Document #" + i + " (runId=" + runId + ")");
             System.out.println("  body: " + doc);
 
-            AgentResult result = graph.invoke(AgentContext.of(doc), runId);
+            AgentResult result = graph.invoke(AgentContext.of(doc), RunOptions.ofRunId(runId));
 
             System.out.println(result.text());
             writeResumeIndex(i + 1);

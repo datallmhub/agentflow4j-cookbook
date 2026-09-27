@@ -1,6 +1,6 @@
 # Recipe 04 — Slack bot with multi-agent planner-executor in Java
 
-> **Build a Slack assistant that plans its actions, executes them against a workspace, and posts a threaded reply** — using AgentFlow4J + Spring AI. Runs in-process with a simulated workspace so you can iterate without a real Slack app.
+> **Build a Slack assistant that plans its actions, executes them against a workspace, and posts a threaded reply** — using af4j + Spring AI. Runs in-process with a simulated workspace so you can iterate without a real Slack app.
 
 ---
 
@@ -69,7 +69,7 @@ Without Ollama the recipe uses keyword-based step planning. With Ollama the plan
 | **Auth** | Use Slack OAuth + `slack-api-client`. Store the bot token in Spring's `${SLACK_BOT_TOKEN}`. |
 | **Webhooks** | Add a `@RestController` for `/slack/events` and validate the signing secret on every request. |
 | **Rate limits** | Wrap `SlackWorkspace` with a `Resilience4j` rate limiter — Slack allows ~1 msg/sec per channel. |
-| **Idempotency** | Use `graph.invoke(ctx, runId)` with `runId = event_id` from the Slack event so retries don't double-post. |
+| **Idempotency** | Use `graph.invoke(ctx, RunOptions.ofRunId(eventId))` with the Slack `event_id` from the Slack event so retries don't double-post. |
 | **Budget cap** | Add a `BudgetPolicy` so a runaway loop doesn't burn your LLM quota answering one nuisance user. |
 
 ---

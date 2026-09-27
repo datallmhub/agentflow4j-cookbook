@@ -1,0 +1,16 @@
+<configuration>
+    <!-- The MCP server child process speaks the protocol on stdout: every log line must go to stderr. -->
+    <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+        <encoder>
+            <pattern>%d{HH:mm:ss} %-5level %logger{20} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Closing the client stops the server process; its exit code is expected. -->
+    <logger name="io.modelcontextprotocol.client.transport.StdioClientTransport" level="ERROR"/>
+
+    <root level="WARN">
+        <appender-ref ref="STDERR"/>
+    </root>
+</configuration>

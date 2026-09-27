@@ -1,6 +1,6 @@
 # Recipe 01 — RAG agent in Java
 
-> **Build a retrieval-augmented generation (RAG) pipeline as a two-agent graph in Java** with AgentFlow4J and Spring AI. Local-first (runs against Ollama), with a budget cap so a flaky retriever can't blow up your token budget.
+> **Build a retrieval-augmented generation (RAG) pipeline as a two-agent graph in Java** with af4j and Spring AI. Local-first (runs against Ollama), with a budget cap so a flaky retriever can't blow up your token budget.
 
 ---
 
@@ -39,7 +39,7 @@ This is the pattern multi-agent frameworks exist for.
 mvn -pl 01-rag-agent exec:java
 
 # with a custom question
-mvn -pl 01-rag-agent exec:java -Dexec.args="What governance gates does AgentFlow4J provide?"
+mvn -pl 01-rag-agent exec:java -Dexec.args="What governance gates does af4j provide?"
 ```
 
 ### Stub mode (no LLM)

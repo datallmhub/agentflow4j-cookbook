@@ -10,8 +10,8 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>AgentFlow4J Cookbook</name>
-    <description>Production-ready recipes for building multi-agent LLM workflows in Java with AgentFlow4J and Spring AI.</description>
+    <name>af4j Cookbook</name>
+    <description>Production-ready recipes for building multi-agent LLM workflows in Java with af4j and Spring AI.</description>
     <url>https://github.com/datallmhub/agentflow4j-cookbook</url>
 
     <licenses>
@@ -28,6 +28,9 @@
         <module>04-slack-bot</module>
         <module>05-batch-document-processor</module>
         <module>06-cost-aware-routing</module>
+        <module>07-mcp-governed-agent</module>
+        <module>08-self-correcting-writer</module>
+        <module>10-parallel-research-squad</module>
     </modules>
 
     <properties>
@@ -35,9 +38,11 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <agentflow4j.version>0.7.0</agentflow4j.version>
-        <spring-boot.version>3.3.0</spring-boot.version>
-        <spring-ai.version>1.0.0</spring-ai.version>
+        <agentflow4j.version>0.9.0</agentflow4j.version>
+        <spring-boot.version>3.5.16</spring-boot.version>
+        <spring-ai.version>1.0.9</spring-ai.version>
+        <!-- MCP SDK ahead of the Spring AI BOM: 1.0.1 fixes a wildcard CORS advisory. -->
+        <mcp.version>1.0.1</mcp.version>
     </properties>
 
     <repositories>
@@ -49,6 +54,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>io.modelcontextprotocol.sdk</groupId>
+                <artifactId>mcp-bom</artifactId>
+                <version>${mcp.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

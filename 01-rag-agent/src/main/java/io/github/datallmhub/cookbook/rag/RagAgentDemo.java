@@ -38,18 +38,18 @@ public class RagAgentDemo {
     record Doc(String id, String title, String body) {}
 
     private static final List<Doc> KNOWLEDGE_BASE = List.of(
-            new Doc("af4j-001", "AgentFlow4J overview",
-                    "AgentFlow4J is a Java framework for governed multi-agent LLM workflows. "
+            new Doc("af4j-001", "af4j overview",
+                    "af4j is a Java framework for governed multi-agent LLM workflows. "
                   + "It runs on top of Spring AI and provides durable graph execution, "
                   + "checkpointing, and policy-based governance."),
             new Doc("af4j-002", "Governance gates",
-                    "AgentFlow4J ships four governance gates: BudgetPolicy caps cost per run, "
+                    "af4j ships four governance gates: BudgetPolicy caps cost per run, "
                   + "node, or call; ToolPolicy controls which tools an agent may invoke; "
                   + "StatePolicy restricts which keys a node may write; ApprovalGate pauses "
                   + "the run for human approval."),
             new Doc("af4j-003", "Checkpointing",
                     "Every run can be persisted by attaching a CheckpointStore. After a crash "
-                  + "or a human pause, graph.resumeWithApproval(runId) replays from the last "
+                  + "or a human pause, graph.resume(runId, ResumeOptions.ofApproval(node)) continues from the last "
                   + "successful node — no work is lost."),
             new Doc("af4j-004", "Run log",
                     "Attach a RunLogStore to record every node enter/exit, transition, and "
@@ -67,7 +67,7 @@ public class RagAgentDemo {
 
         String question = args.length > 0
                 ? String.join(" ", args)
-                : "How does AgentFlow4J prevent an agent from burning my budget?";
+                : "How does af4j prevent an agent from burning my budget?";
 
         System.out.println("=== RAG agent ===");
         System.out.println("[mode]      " + (chat != null ? "LIVE (Ollama)" : "STUB (no Ollama at " + envOr("OLLAMA_HOST", "http://localhost:11434") + ")") + "\n");

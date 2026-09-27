@@ -38,6 +38,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 | 8 | [**Self-correcting writer**](08-self-correcting-writer/) | A bounded revise-until-valid loop: a writer revises its draft until a deterministic reviewer accepts it, and escalates to a human after three attempts |
 | 9 | [**LLM as a judge**](09-llm-as-a-judge/) | Score an answer with a judge agent that returns a typed verdict, route on the score (send, revise, escalate) and cap what judging costs |
 | 10 | [**Parallel research squad**](10-parallel-research-squad/) | Fan out three researchers over one brief and join their findings, with a shared budget cap and an approval gate that pauses only its own branch |
+| 11 | [**Governed OpenHands workflow**](11-governed-openhands/) | Delegate a ticket to the OpenHands coding agent behind an approval gate, a cost cap and checkpoints, and bring the pull request back into the workflow |
 
 ---
 

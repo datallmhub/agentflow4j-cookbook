@@ -32,6 +32,7 @@
         <module>08-self-correcting-writer</module>
         <module>09-llm-as-a-judge</module>
         <module>10-parallel-research-squad</module>
+        <module>11-governed-openhands</module>
     </modules>
 
     <properties>
@@ -39,7 +40,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <agentflow4j.version>0.9.0</agentflow4j.version>
+        <agentflow4j.version>0.10.0</agentflow4j.version>
         <spring-boot.version>3.5.16</spring-boot.version>
         <spring-ai.version>1.0.9</spring-ai.version>
         <!-- MCP SDK ahead of the Spring AI BOM: 1.0.1 fixes a wildcard CORS advisory. -->
@@ -125,6 +126,11 @@
             <dependency>
                 <groupId>com.github.datallmhub.agentflow4j</groupId>
                 <artifactId>agentflow4j-starter</artifactId>
+                <version>v${agentflow4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <artifactId>agentflow4j-openhands</artifactId>
                 <version>v${agentflow4j.version}</version>
             </dependency>
         </dependencies>

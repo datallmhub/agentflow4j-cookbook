@@ -43,6 +43,10 @@
         <spring-ai.version>1.0.9</spring-ai.version>
         <!-- MCP SDK ahead of the Spring AI BOM: 1.0.1 fixes a wildcard CORS advisory. -->
         <mcp.version>1.0.1</mcp.version>
+        <!-- Jackson ahead of the Boot BOM: 2.21.5 patches three advisories. -->
+        <jackson-bom.version>2.21.5</jackson-bom.version>
+        <!-- Jackson 3 comes in with the MCP SDK; 3.1.6 is patched. -->
+        <jackson3-bom.version>3.1.6</jackson3-bom.version>
     </properties>
 
     <repositories>
@@ -54,6 +58,22 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>tools.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson3-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>io.modelcontextprotocol.sdk</groupId>
                 <artifactId>mcp-bom</artifactId>

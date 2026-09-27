@@ -26,7 +26,7 @@ import org.springframework.ai.ollama.api.OllamaOptions;
 /**
  * Recipe 06 — Cost-aware routing &amp; reason-aware retries.
  *
- * <p>Two levers AgentFlow4J gives you to keep an agentic workload from quietly
+ * <p>Two levers af4j gives you to keep an agentic workload from quietly
  * burning money:
  *
  * <ol>

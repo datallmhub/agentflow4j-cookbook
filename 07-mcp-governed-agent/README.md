@@ -20,7 +20,7 @@
                           └──────────────────┘
 ```
 
-AgentFlow4J does not reimplement MCP. Spring AI's `SyncMcpToolCallbackProvider` turns the server's tools into `ToolCallback`s; handing that provider to `ExecutorAgent.toolProviders(...)` puts every MCP call under the graph's governance.
+af4j does not reimplement MCP. Spring AI's `SyncMcpToolCallbackProvider` turns the server's tools into `ToolCallback`s; handing that provider to `ExecutorAgent.toolProviders(...)` puts every MCP call under the graph's governance.
 
 ---
 

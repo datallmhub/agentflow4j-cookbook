@@ -1,11 +1,11 @@
-# AgentFlow4J Cookbook — multi-agent LLM workflow examples in Java
+# af4j Cookbook — multi-agent LLM workflow examples in Java
 
 [![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Java 17+](https://img.shields.io/badge/java-17%2B-orange.svg)](https://adoptium.net/)
-[![AgentFlow4J 0.8.0](https://img.shields.io/badge/agentflow4j-0.8.0-green.svg)](https://github.com/datallmhub/agentflow4j)
+[![af4j 0.8.0](https://img.shields.io/badge/agentflow4j-0.8.0-green.svg)](https://github.com/datallmhub/agentflow4j)
 [![Spring AI 1.0](https://img.shields.io/badge/spring--ai-1.0-brightgreen.svg)](https://docs.spring.io/spring-ai/reference/)
 
-**Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, batch document processing, and cost-aware routing — with [AgentFlow4J](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).
+**Runnable examples for building multi-agent LLM workflows in Java** — RAG, support-ticket triage, web research, Slack bots, batch document processing, and cost-aware routing — with [af4j](https://github.com/datallmhub/agentflow4j) and [Spring AI](https://docs.spring.io/spring-ai/reference/).
 
 If you want to orchestrate **governed, production-ready multi-agent workflows on the JVM** — with budget caps, tool policies, human approval gates, and checkpoint-based recovery — this is a copy-paste starting point. Every recipe is a self-contained Maven module: clone, pick a recipe, run it. Local-first — each one runs against [Ollama](https://ollama.com/) with **zero API keys and zero cost**, and swaps to OpenAI, Mistral, or Anthropic by changing one Spring AI starter dependency.
 
@@ -13,7 +13,7 @@ If you want to orchestrate **governed, production-ready multi-agent workflows on
 
 ## Why this cookbook exists
 
-Java has a vibrant LLM ecosystem ([LangChain4j](https://github.com/langchain4j/langchain4j), [Spring AI](https://docs.spring.io/spring-ai/reference/), [Embabel](https://github.com/embabel/embabel-agent), [AgentFlow4J](https://github.com/datallmhub/agentflow4j)) but most tutorials stop at **single-agent chatbots**. Real production AI systems need more:
+Java has a vibrant LLM ecosystem ([LangChain4j](https://github.com/langchain4j/langchain4j), [Spring AI](https://docs.spring.io/spring-ai/reference/), [Embabel](https://github.com/embabel/embabel-agent), [af4j](https://github.com/datallmhub/agentflow4j)) but most tutorials stop at **single-agent chatbots**. Real production AI systems need more:
 
 - **multiple specialised agents** coordinating on one task (triage → specialist → review)
 - **durable state** that survives restarts and crashes
@@ -55,7 +55,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 git clone https://github.com/datallmhub/agentflow4j-cookbook.git
 cd agentflow4j-cookbook
 
-# Build everything (uses JitPack to fetch AgentFlow4J)
+# Build everything (uses JitPack to fetch af4j)
 mvn -DskipTests install
 
 # Run a single recipe (no LLM required — falls back to stubs)
@@ -127,8 +127,8 @@ agentflow4j-cookbook/
 
 ## Related resources
 
-- **[AgentFlow4J](https://github.com/datallmhub/agentflow4j)** — the multi-agent orchestration framework these recipes use
-- **[AgentFlow4J docs](https://datallmhub.github.io/agentflow4j/)** — concepts, governance, resilience, observability
+- **[af4j](https://github.com/datallmhub/agentflow4j)** — the multi-agent orchestration framework these recipes use
+- **[af4j docs](https://datallmhub.github.io/agentflow4j/)** — concepts, governance, resilience, observability
 - **[Two API levels](https://datallmhub.github.io/agentflow4j/two-api-levels/)** — when to use the high-level squad API vs the low-level graph API
 - **[Stop your agent burning $1000 overnight](https://datallmhub.github.io/agentflow4j/tutorials/stop-your-agent-burning-money/)** — tutorial on the four governance gates
 - **[Spring AI reference](https://docs.spring.io/spring-ai/reference/)** — the Spring abstraction over LLM providers
@@ -138,7 +138,7 @@ agentflow4j-cookbook/
 ## Frequently asked
 
 **How does this compare to LangGraph or LangChain?**
-AgentFlow4J is not a port of LangGraph. It's a governed orchestration runtime — the difference is `BudgetPolicy`, `ToolPolicy`, `ApprovalGate`, and `FailureClassifier` built into the execution model, not bolted on top. If you're on Spring and need production governance over your agent workflows, these recipes show what that looks like end to end.
+af4j is not a port of LangGraph. It's a governed orchestration runtime — the difference is `BudgetPolicy`, `ToolPolicy`, `ApprovalGate`, and `FailureClassifier` built into the execution model, not bolted on top. If you're on Spring and need production governance over your agent workflows, these recipes show what that looks like end to end.
 
 **Do I need an OpenAI API key?**
 No. Every recipe runs against a local [Ollama](https://ollama.com/) model out of the box. Cloud providers (OpenAI, Mistral, Anthropic) are a one-dependency swap.
@@ -162,4 +162,4 @@ Have a use case that isn't covered? Open an issue describing the scenario — we
 
 ## License
 
-Apache License 2.0 — same as AgentFlow4J. See [LICENSE](LICENSE).
+Apache License 2.0 — same as af4j. See [LICENSE](LICENSE).

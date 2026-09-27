@@ -48,7 +48,7 @@ import org.springframework.ai.ollama.api.OllamaOptions;
  * Recipe 07: a governed MCP agent.
  *
  * <p>A support agent answers customer tickets with the tools of an order
- * system exposed over MCP. AgentFlow4J does not reimplement MCP: Spring AI's
+ * system exposed over MCP. af4j does not reimplement MCP: Spring AI's
  * {@link SyncMcpToolCallbackProvider} turns the server's tools into
  * {@code ToolCallback}s, and handing that provider to
  * {@link ExecutorAgent.Builder#toolProviders} puts every MCP call under the

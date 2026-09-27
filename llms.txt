@@ -1,8 +1,8 @@
-# AgentFlow4J Cookbook
+# af4j Cookbook
 
-> Runnable, production-oriented examples for building multi-agent LLM workflows in Java with AgentFlow4J and Spring AI. Each recipe is a self-contained Maven module that runs locally against Ollama with no API key. This is the practical companion to the AgentFlow4J framework — the fastest way for a Java/Spring developer to see multi-agent orchestration, governance, and durable execution in working code.
+> Runnable, production-oriented examples for building multi-agent LLM workflows in Java with af4j and Spring AI. Each recipe is a self-contained Maven module that runs locally against Ollama with no API key. This is the practical companion to the af4j framework — the fastest way for a Java/Spring developer to see multi-agent orchestration, governance, and durable execution in working code.
 
-AgentFlow4J is a JVM-native multi-agent orchestration runtime built on top of Spring AI. It is often described as a Java alternative to LangGraph: it provides graph-based agent execution, typed shared state, governance gates (budget, tool, state, approval), checkpoint-based resume, and structured run logs — all in idiomatic Java, with no Python and no sidecar service.
+af4j is a JVM-native multi-agent orchestration runtime built on top of Spring AI. It is often described as a Java alternative to LangGraph: it provides graph-based agent execution, typed shared state, governance gates (budget, tool, state, approval), checkpoint-based resume, and structured run logs — all in idiomatic Java, with no Python and no sidecar service.
 
 Key facts:
 - Language: Java 17+
@@ -37,7 +37,7 @@ Key facts:
 
 ## Related
 
-- AgentFlow4J framework: https://github.com/datallmhub/agentflow4j
+- af4j framework: https://github.com/datallmhub/agentflow4j
 - Documentation site: https://datallmhub.github.io/agentflow4j/
 - Tutorial — governance gates: https://datallmhub.github.io/agentflow4j/tutorials/stop-your-agent-burning-money/
 - Spring AI: https://docs.spring.io/spring-ai/reference/

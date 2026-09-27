@@ -1,6 +1,6 @@
 # Recipe 04 — Slack bot with multi-agent planner-executor in Java
 
-> **Build a Slack assistant that plans its actions, executes them against a workspace, and posts a threaded reply** — using AgentFlow4J + Spring AI. Runs in-process with a simulated workspace so you can iterate without a real Slack app.
+> **Build a Slack assistant that plans its actions, executes them against a workspace, and posts a threaded reply** — using af4j + Spring AI. Runs in-process with a simulated workspace so you can iterate without a real Slack app.
 
 ---
 

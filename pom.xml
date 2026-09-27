@@ -30,6 +30,7 @@
         <module>06-cost-aware-routing</module>
         <module>07-mcp-governed-agent</module>
         <module>08-self-correcting-writer</module>
+        <module>09-llm-as-a-judge</module>
         <module>10-parallel-research-squad</module>
     </modules>
 

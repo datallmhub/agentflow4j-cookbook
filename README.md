@@ -36,6 +36,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 | 6 | [**Cost-aware routing**](06-cost-aware-routing/) | Degrade a squad from a premium model to a cheaper fallback as the budget depletes with `RoutingStrategy.budgetAware`, and retry only what's worth retrying via a reason-aware `RetryPolicy` (transient vs permanent vs over-budget) |
 | 7 | [**Governed MCP agent**](07-mcp-governed-agent/) | Use the tools of an MCP server from an `AgentGraph`: a `ToolPolicy` refuses risky calls before they reach the server, every call is audited, and the model is told when it was refused |
 | 8 | [**Self-correcting writer**](08-self-correcting-writer/) | A bounded revise-until-valid loop: a writer revises its draft until a deterministic reviewer accepts it, and escalates to a human after three attempts |
+| 9 | [**LLM as a judge**](09-llm-as-a-judge/) | Score an answer with a judge agent that returns a typed verdict, route on the score (send, revise, escalate) and cap what judging costs |
 | 10 | [**Parallel research squad**](10-parallel-research-squad/) | Fan out three researchers over one brief and join their findings, with a shared budget cap and an approval gate that pauses only its own branch |
 
 ---

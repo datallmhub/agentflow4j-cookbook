@@ -1,9 +1,10 @@
 package io.github.datallmhub.cookbook.mcp;
 
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
+import io.modelcontextprotocol.json.McpJsonDefaults;
+import io.modelcontextprotocol.json.McpJsonMapper;
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpServerFeatures.SyncToolSpecification;
 import io.modelcontextprotocol.server.transport.StdioServerTransportProvider;
@@ -32,17 +33,30 @@ public class OrdersMcpServer {
              "required":["orderId","amount"]}""";
 
     public static void main(String[] args) throws InterruptedException {
-        SyncToolSpecification lookup = new SyncToolSpecification(
-                new McpSchema.Tool("lookup_order", "Look up an order by its id", ORDER_ID_SCHEMA),
-                (exchange, arguments) -> text(ORDERS.getOrDefault(
-                        String.valueOf(arguments.get("orderId")), "no such order")));
+        // Resolved through the SDK's service loader: mcp-json-jackson2 provides it.
+        McpJsonMapper json = McpJsonDefaults.getMapper();
 
-        SyncToolSpecification refund = new SyncToolSpecification(
-                new McpSchema.Tool("refund_order", "Refund an order, fully or partially", REFUND_SCHEMA),
-                (exchange, arguments) -> text("refunded " + arguments.get("amount")
-                        + " EUR on order " + arguments.get("orderId")));
+        SyncToolSpecification lookup = SyncToolSpecification.builder()
+                .tool(McpSchema.Tool.builder()
+                        .name("lookup_order")
+                        .description("Look up an order by its id")
+                        .inputSchema(json, ORDER_ID_SCHEMA)
+                        .build())
+                .callHandler((exchange, request) -> text(ORDERS.getOrDefault(
+                        String.valueOf(request.arguments().get("orderId")), "no such order")))
+                .build();
 
-        McpServer.sync(new StdioServerTransportProvider())
+        SyncToolSpecification refund = SyncToolSpecification.builder()
+                .tool(McpSchema.Tool.builder()
+                        .name("refund_order")
+                        .description("Refund an order, fully or partially")
+                        .inputSchema(json, REFUND_SCHEMA)
+                        .build())
+                .callHandler((exchange, request) -> text("refunded " + request.arguments().get("amount")
+                        + " EUR on order " + request.arguments().get("orderId")))
+                .build();
+
+        McpServer.sync(new StdioServerTransportProvider(json))
                 .serverInfo("orders-server", "1.0.0")
                 .capabilities(McpSchema.ServerCapabilities.builder().tools(true).build())
                 .tools(lookup, refund)
@@ -53,6 +67,6 @@ public class OrdersMcpServer {
     }
 
     private static McpSchema.CallToolResult text(String value) {
-        return new McpSchema.CallToolResult(List.of(new McpSchema.TextContent(value)), false);
+        return McpSchema.CallToolResult.builder().addTextContent(value).isError(false).build();
     }
 }

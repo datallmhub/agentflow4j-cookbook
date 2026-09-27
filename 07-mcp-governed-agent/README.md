@@ -88,4 +88,6 @@ See the framework docs: [MCP tools](https://datallmhub.github.io/agentflow4j/mcp
 - [`McpGovernedAgentDemo.java`](src/main/java/io/github/datallmhub/cookbook/mcp/McpGovernedAgentDemo.java): the agent, the policy and the stub model
 - [`OrdersMcpServer.java`](src/main/java/io/github/datallmhub/cookbook/mcp/OrdersMcpServer.java): the MCP server
 - [`logback.xml`](src/main/resources/logback.xml): keeps logs off stdout, which carries the MCP protocol
+
+The MCP server and client are built with the MCP Java SDK 1.0 API: `McpJsonDefaults.getMapper()` resolves the JSON mapper through the service loader, and tools are declared with `SyncToolSpecification.builder()`.
 - [`pom.xml`](pom.xml)

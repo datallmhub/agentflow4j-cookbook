@@ -23,6 +23,7 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
+import io.modelcontextprotocol.json.McpJsonDefaults;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.jspecify.annotations.Nullable;
 import org.springframework.ai.chat.client.ChatClient;
@@ -136,7 +137,8 @@ public class McpGovernedAgentDemo {
         ServerParameters server = ServerParameters.builder(java)
                 .args("-cp", classpath(), OrdersMcpServer.class.getName())
                 .build();
-        McpSyncClient client = McpClient.sync(new StdioClientTransport(server))
+        McpSyncClient client = McpClient.sync(
+                        new StdioClientTransport(server, McpJsonDefaults.getMapper()))
                 .clientInfo(new McpSchema.Implementation(CLIENT_NAME, "1.0.0"))
                 .requestTimeout(Duration.ofSeconds(20))
                 .build();

@@ -40,7 +40,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <agentflow4j.version>0.10.0</agentflow4j.version>
+        <agentflow4j.version>1.0.0</agentflow4j.version>
         <spring-boot.version>3.5.16</spring-boot.version>
         <spring-ai.version>1.0.9</spring-ai.version>
         <!-- MCP SDK ahead of the Spring AI BOM: 1.0.1 fixes a wildcard CORS advisory. -->

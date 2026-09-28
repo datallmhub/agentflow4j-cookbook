@@ -34,7 +34,7 @@ public class BatchProcessorDemo {
     static final StateKey<List<String>> TAGS    = StateKey.of("doc.tags",    (Class<List<String>>) (Class<?>) List.class);
 
     private static final List<String> DOCUMENTS = List.of(
-            "af4j ships a BudgetPolicy SPI to cap multi-agent runs by cost.",
+            "AF4J ships a BudgetPolicy SPI to cap multi-agent runs by cost.",
             "Spring AI 1.0 unifies chat models behind a single ChatClient interface.",
             "Resilience4j integrates seamlessly with Spring Boot for circuit breakers.",
             "LangChain4j gives Java developers an ergonomic LLM API similar to Python's LangChain.",

@@ -23,7 +23,7 @@ import io.github.datallmhub.agentflow4j.openhands.OpenHandsKeys;
 /**
  * Recipe 11: a governed OpenHands workflow.
  *
- * <p>A ticket becomes a coding task delegated to OpenHands, with af4j as the
+ * <p>A ticket becomes a coding task delegated to OpenHands, with AF4J as the
  * governance layer around it:
  *
  * <ol>

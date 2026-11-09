@@ -38,12 +38,12 @@ public class RagAgentDemo {
     record Doc(String id, String title, String body) {}
 
     private static final List<Doc> KNOWLEDGE_BASE = List.of(
-            new Doc("af4j-001", "af4j overview",
-                    "af4j is a Java framework for governed multi-agent LLM workflows. "
+            new Doc("af4j-001", "AF4J overview",
+                    "AF4J is a Java framework for governed multi-agent LLM workflows. "
                   + "It runs on top of Spring AI and provides durable graph execution, "
                   + "checkpointing, and policy-based governance."),
             new Doc("af4j-002", "Governance gates",
-                    "af4j ships four governance gates: BudgetPolicy caps cost per run, "
+                    "AF4J ships four governance gates: BudgetPolicy caps cost per run, "
                   + "node, or call; ToolPolicy controls which tools an agent may invoke; "
                   + "StatePolicy restricts which keys a node may write; ApprovalGate pauses "
                   + "the run for human approval."),
@@ -67,7 +67,7 @@ public class RagAgentDemo {
 
         String question = args.length > 0
                 ? String.join(" ", args)
-                : "How does af4j prevent an agent from burning my budget?";
+                : "How does AF4J prevent an agent from burning my budget?";
 
         System.out.println("=== RAG agent ===");
         System.out.println("[mode]      " + (chat != null ? "LIVE (Ollama)" : "STUB (no Ollama at " + envOr("OLLAMA_HOST", "http://localhost:11434") + ")") + "\n");

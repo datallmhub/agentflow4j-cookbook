@@ -13,7 +13,7 @@
                      the spend          resumed until finished
 ```
 
-`OpenHandsAgent` is a node like any other: af4j does not reimplement the coding agent, it governs it.
+`OpenHandsAgent` is a node like any other: AF4J does not reimplement the coding agent, it governs it.
 
 ---
 

@@ -1,6 +1,6 @@
 # Recipe 03 — Web research agent in Java
 
-> **Multi-agent Java workflow that searches the public web (Hacker News) and synthesises a digest** using af4j + Spring AI. Real HTTP, real ranking, optional LLM summarisation.
+> **Multi-agent Java workflow that searches the public web (Hacker News) and synthesises a digest** using AF4J + Spring AI. Real HTTP, real ranking, optional LLM summarisation.
 
 ---
 

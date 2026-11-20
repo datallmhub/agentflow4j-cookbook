@@ -6,7 +6,7 @@ AF4J is a JVM-native multi-agent orchestration runtime built on top of Spring AI
 
 Key facts:
 - Language: Java 17+
-- Build: Maven (multi-module), dependencies fetched via JitPack
+- Build: Maven (multi-module), AF4J fetched from Maven Central
 - LLM access: Spring AI ChatClient; local-first via Ollama, swappable to OpenAI / Mistral / Anthropic
 - License: Apache 2.0
 - Framework repo: https://github.com/datallmhub/agentflow4j

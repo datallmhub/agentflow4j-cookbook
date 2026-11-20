@@ -58,7 +58,7 @@ This cookbook shows those production patterns end-to-end in **idiomatic Java + S
 git clone https://github.com/datallmhub/agentflow4j-cookbook.git
 cd agentflow4j-cookbook
 
-# Build everything (uses JitPack to fetch AF4J)
+# Build everything (AF4J comes from Maven Central)
 mvn -DskipTests install
 
 # Run a single recipe (no LLM required — falls back to stubs)

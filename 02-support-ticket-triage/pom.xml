@@ -21,11 +21,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.datallmhub.agentflow4j</groupId>
+            <groupId>io.github.datallmhub</groupId>
             <artifactId>agentflow4j-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.datallmhub.agentflow4j</groupId>
+            <groupId>io.github.datallmhub</groupId>
             <artifactId>agentflow4j-graph</artifactId>
         </dependency>
 

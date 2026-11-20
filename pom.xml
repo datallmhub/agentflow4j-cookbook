@@ -52,13 +52,6 @@
         <log4j2.version>2.25.5</log4j2.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -109,29 +102,29 @@
             </dependency>
 
             <dependency>
-                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <groupId>io.github.datallmhub</groupId>
                 <artifactId>agentflow4j-core</artifactId>
-                <version>v${agentflow4j.version}</version>
+                <version>${agentflow4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <groupId>io.github.datallmhub</groupId>
                 <artifactId>agentflow4j-graph</artifactId>
-                <version>v${agentflow4j.version}</version>
+                <version>${agentflow4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <groupId>io.github.datallmhub</groupId>
                 <artifactId>agentflow4j-squad</artifactId>
-                <version>v${agentflow4j.version}</version>
+                <version>${agentflow4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <groupId>io.github.datallmhub</groupId>
                 <artifactId>agentflow4j-starter</artifactId>
-                <version>v${agentflow4j.version}</version>
+                <version>${agentflow4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.datallmhub.agentflow4j</groupId>
+                <groupId>io.github.datallmhub</groupId>
                 <artifactId>agentflow4j-openhands</artifactId>
-                <version>v${agentflow4j.version}</version>
+                <version>${agentflow4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
